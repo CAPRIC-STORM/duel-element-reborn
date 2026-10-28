@@ -1,0 +1,19 @@
+FROM node:24-alpine
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+COPY apps/server/package.json apps/server/package.json
+COPY apps/client/package.json apps/client/package.json
+COPY packages/game-core/package.json packages/game-core/package.json
+COPY packages/game-data/package.json packages/game-data/package.json
+RUN npm ci
+
+COPY apps/server apps/server
+COPY packages/game-core packages/game-core
+COPY packages/game-data packages/game-data
+RUN npm run build -w @duel/server
+
+ENV NODE_ENV=production
+EXPOSE 2567
+CMD ["npm", "run", "start", "-w", "@duel/server"]

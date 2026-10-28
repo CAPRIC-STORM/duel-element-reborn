@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320">
+  <filter id="paper" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.018 0.085" numOctaves="3" seed="27" stitchTiles="stitch" result="fibers"/>
+    <feColorMatrix in="fibers" type="matrix" values="
+      0.72 0 0 0 0.18
+      0 0.76 0 0 0.16
+      0 0 0.82 0 0.12
+      0 0 0 0.48 0"/>
+  </filter>
+  <rect width="320" height="320" fill="#d9c99f" filter="url(#paper)"/>
+</svg>
