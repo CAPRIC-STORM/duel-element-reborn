@@ -11,5 +11,5 @@ const gameServer = new Server({
 })
 
 gameServer.define('duel', DuelRoom)
-await gameServer.listen(port)
-console.log(`Duel server listening on ws://127.0.0.1:${port}`)
+await gameServer.listen(port, '0.0.0.0')
+console.log(`Duel server listening on ws://0.0.0.0:${port}`)
